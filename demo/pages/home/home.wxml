@@ -1,0 +1,88 @@
+<!--pages/home/home.wxml-->
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">国内受欢迎 Top100</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">个人的查询</view>
+</view>
+<view>
+  <swiper current="{{currentTab}}" 
+          class="swiper-box" 
+          duration="300" 
+          style="height:{{winHeight - 32}}px" 
+          bindchange="bindChange">
+    <swiper-item class="box-content">
+      <view class="single-person" 
+            wx:for="{{topHundredList}}" 
+            wx:key="key">
+        <view class="person-left">
+          <image class="person-avatar" src="{{item.avatar_url}}"></image>
+          <view class="person-info">
+            <view class="person-info-top">
+              <text class="info-top-rank" decode>{{index+1}}.&nbsp;</text>
+              <text class="info-top-name" decode>{{item.login}}&nbsp;</text>
+              <!-- <text class="infor-top-nickname">ruanyf</text> -->
+            </view>
+            <view class="person-info-bottom">
+              <text class="info-bottom-locaIcon icon"></text>
+              <text class="info-bottom-location" decode>&nbsp;China&nbsp;&nbsp;</text>
+              <!-- <text class="info-bottom-repoIcon icon"></text>
+              <text class="info-bottom-repo" decode>&nbsp;56</text> -->
+            </view>
+          </view>
+        </view>
+        <!-- <view class="person-right">
+          <text class="person-follIcon icon"></text>
+          <text class="person-follower" decode>&nbsp;52813</text>
+        </view> -->
+      </view>
+    </swiper-item>
+    <!-- 个人查询 -->
+    <swiper-item class="box-content">
+      <view class="form-wrapper">
+        <input placeholder='请输入你github名字'
+              class="name-input"
+              bindinput='inputGithubName' />
+        <button class="confirm-btn"
+                bindtap="getGithubMsg">
+          确认提交
+        </button>
+      </view>
+      <view class="personal-lists" wx:if="{{githubInfo.login}}">
+        <view class="single-person">
+          <view class="person-left">
+            <image class="person-avatar" src="{{githubInfo.avatar_url}}"></image>
+            <view class="person-info">
+              <view class="person-info-top">
+                <!-- <text class="info-top-rank" decode>{{index+1}}.&nbsp;</text> -->
+                <text class="info-top-name" decode>{{githubInfo.name}}&nbsp;</text>
+                <text class="infor-top-nickname">{{githubInfo.login}}</text>
+              </view>
+              <view class="person-info-bottom">
+                <text class="info-bottom-locaIcon icon"></text>
+                <text class="info-bottom-location" decode>&nbsp;{{githubInfo.location}}&nbsp;&nbsp;</text>
+                <text class="info-bottom-repoIcon icon"></text>
+                <text class="info-bottom-repo" decode>&nbsp;{{githubInfo.public_repos}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="person-right">
+            <text class="person-follIcon icon"></text>
+            <text class="person-follower" decode>&nbsp;{{githubInfo.followers}}</text>
+          </view>
+        </view>
+        <view class="person-other">
+          <view>介绍（bio）: {{githubInfo.bio}}</view>
+          <view>关注了: {{githubInfo.followers}} 人</view>
+          <view>关注者: {{githubInfo.following}} 人</view>
+          <view>github创建时间: {{githubInfo.created_at}}</view>
+          <view>github更新时间: {{githubInfo.updated_at}}</view>
+        </view>
+        <!-- <text wx:for="{{githubInfo}}" 
+              wx:key="key" 
+              wx:for-index="key" 
+              wx:for-item="value">
+          {{key}} : {{value}}
+        </text> -->
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

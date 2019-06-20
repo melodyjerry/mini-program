@@ -1,0 +1,42 @@
+<!--pages/profile/profile.wxml-->
+<!-- <text>pages/profile/profile.wxml</text>
+
+<open-data type="userAvatarUrl"></open-data>
+
+<button size="mini" 
+        open-type='getUserInfo'
+        bindgetuserinfo='onGotUserInfo'>
+  获取用户信息
+</button>
+
+<view>{{list.name}}</view> -->
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" 
+          indicator-active-color='#ff5777'
+          autoplay="{{autoplay}}" 
+          interval="{{interval}}" 
+          duration="duration">
+    <block wx:for="{{imgUrls}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="btn-wrapper">
+  <button size="mini" 
+        class="getInfoBtn"
+        open-type='getUserInfo'
+        bindgetuserinfo='onGotUserInfo'>
+    获取你微信信息
+  </button>
+</view>
+<view class="info-detail" wx:if="{{userInfo != null}}">
+  <view class="person-avatar"><image src="{{userInfo.avatarUrl}}"></image></view>
+  <view class="nickname">{{userInfo.nickName}}, {{userInfo.gender == 1 ? '男' : '女'}}</view>
+  <view class="sayhello">Hello! I am {{userInfo.nickName}}. </view>
+  <view class="sayhello">I come from {{userInfo.city}},{{userInfo.province}},{{userInfo.country}}! </view>
+  <view class="sayhello">And I love {{userInfo.city}}!</view>
+</view>
+
+

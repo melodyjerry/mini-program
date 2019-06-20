@@ -1,0 +1,41 @@
+/* pages/profile/profile.wxss */
+.slide-image{
+  width: 100%;
+  display: block;
+}
+.btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.btn-wrapper .getInfoBtn{
+  background: #ff5777;
+  color: #fff;
+  margin: 0 auto;
+}
+.info-detail{
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 60rpx;
+}
+.info-detail .person-avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.person-avatar image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.info-detail .nickname{
+  text-align: center;
+  font-size: 36rpx;
+  color: #999;
+}
+.info-detail .sayhello{
+  font-weight: bolder;
+  color: #333;
+  text-align: center;
+}
