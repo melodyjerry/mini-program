@@ -1,15 +1,4 @@
 <!--pages/profile/profile.wxml-->
-<!-- <text>pages/profile/profile.wxml</text>
-
-<open-data type="userAvatarUrl"></open-data>
-
-<button size="mini" 
-        open-type='getUserInfo'
-        bindgetuserinfo='onGotUserInfo'>
-  获取用户信息
-</button>
-
-<view>{{list.name}}</view> -->
 <view>
   <swiper indicator-dots="{{indicatorDots}}" 
           indicator-active-color='#ff5777'

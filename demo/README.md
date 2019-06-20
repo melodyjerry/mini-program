@@ -1,3 +1,5 @@
+## 目录说明
+
 - project.config.json // 项目的配置信息
 - app.json // app的入口页面【必须的】
 - app.js // app全局的逻辑处理
